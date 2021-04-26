@@ -9,7 +9,8 @@ def get_divided_time_diff(name):
     try:
         f1 = open('../data/k4a-ts/' + name0 + '.txt', 'r')
         f2 = open('../data/k4a-ts/' + name + '.txt', 'r')
-    except FileNotFoundError:
+    except:
+        print('not found:', name)
         return 0
     try:
         start1 = float(f1.readline().split()[0])
@@ -19,6 +20,7 @@ def get_divided_time_diff(name):
         start2 = float(f2.readline().split()[0])
     except ValueError:
         start2 = float(f2.readline().split()[1])
+    print(name, ' ', round(start1 - start2, 3))
     return round(start1 - start2, 3)
 
 
@@ -34,7 +36,8 @@ def merge(path):
     for i in range(fin.shape[0]):
         elements = fin.values[i]
         if elements[0][-2] != '_':
-            fout.write('{},"{}",{},{},\n'.format(elements[0], elements[1], elements[2], elements[3]))
+            fout.write('{},"{}",{},{},\n'.format(elements[0], elements[1],
+                                                 round(elements[2], 3), round(elements[3], 3)))
             continue
         if elements[0] != now_name:
             now_name = elements[0]

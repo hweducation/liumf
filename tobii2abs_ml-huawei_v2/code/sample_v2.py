@@ -11,8 +11,8 @@ def preprocess_v2():
     def init_dict():
         return {x: [] for x in ['gaze_point', 'gaze_direction', 'pupil_diameter', 'eye_movement']}
 
-    path1 = 'E:\\data\\第一批26位学生加2-多维数据\\'
-    path2 = 'E:\\data\\第二批27位学生-多维数据\\'
+    path1 = 'F:\\data\\第一批26位学生加2-多维数据\\'
+    path2 = 'F:\\data\\第二批27位学生-多维数据\\'
     suffix = '\\Tobii\\Project2 Data Export.csv'
     out_path = '../data/output_v2.csv'
     path_abs_face = '../data/abs_with_face.csv'
